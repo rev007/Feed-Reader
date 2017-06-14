@@ -1,3 +1,9 @@
+# Note
+
+SpecRunner.html was for running Jasmine in a separate window and making things look neat. But you can't run tests on the
+Feed Reader DOM from a separate window so I had to put the Jasmine interface back in the Feed Reader index.html to complete
+the project.
+
 # Project Overview
 
 In this project you are given a web-based application that reads RSS feeds. The original developer of this application clearly saw the value in testing, they've already included [Jasmine](http://jasmine.github.io/) and even started writing their first test suite! Unfortunately, they decided to move on to start their own company and we're now left with an application with an incomplete test suite. That's where you come in.
