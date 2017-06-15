@@ -104,7 +104,7 @@ $(function() {
     /* TODO: 6) Write a new test suite named "Initial Entries" */
     describe('Initial entries', function() {
 
-        /* TODO: Write a test that ensures when the loadFeed
+        /* TODO: 7) Write a test that ensures when the loadFeed
          * function is called and completes its work, there is at least
          * a single .entry element within the .feed container.
          * Remember, loadFeed() is asynchronous so this test will require
@@ -120,14 +120,9 @@ $(function() {
         it('should grab intial contacts', function(done) {
             var x = $(".feed").contents().length;
             console.log(x);
-            expect(x).toBeGreaterThan(1);
+            expect(x).toBeGreaterThan(0);
             done();
         });
-
-
-
-
-
 
     });
 
