@@ -31,6 +31,7 @@ $(function() {
          * in the allFeeds object and ensures it has a URL defined
          * and that the URL is not empty.
          */
+
         it('has URLs that are defined', function() {
             allFeeds.forEach(function(feed) {
                 expect(feed.url).toBeDefined();
@@ -48,6 +49,7 @@ $(function() {
          * in the allFeeds object and ensures it has a name defined
          * and that the name is not empty.
          */
+
         it('has names that are defined', function() {
             allFeeds.forEach(function(feed) {
                 expect(feed.name).toBeDefined();
@@ -64,13 +66,15 @@ $(function() {
 
 
     /* TODO: 3) Write a new test suite named "The menu" */
-    describe('The menu', function() {
+
+    describe('The Menu', function() {
 
         /* TODO: 4) Write a test that ensures the menu element is
          * hidden by default. You'll have to analyze the HTML and
          * the CSS to determine how we're performing the
          * hiding/showing of the menu element.
          */
+
         it ('is hidden by default', function() {
             var element = document.getElementsByClassName("menu-hidden");
             expect(element.length).not.toBeLessThan(1); // "menu-hidden" is the class css uses to push menu off screen
@@ -81,6 +85,7 @@ $(function() {
           * should have two expectations: does the menu display when
           * clicked and does it hide when clicked again.
           */
+
          it('changes visibility when clicked', function() {
 
              var element;
@@ -102,7 +107,7 @@ $(function() {
 
     
     /* TODO: 6) Write a new test suite named "Initial Entries" */
-    describe('Initial entries', function() {
+    describe('Initial Entries', function() {
 
         /* TODO: 7) Write a test that ensures when the loadFeed
          * function is called and completes its work, there is at least
@@ -119,7 +124,6 @@ $(function() {
 
         it('should grab intial contacts', function(done) {
             var x = $(".feed").contents().length;
-            console.log(x);
             expect(x).toBeGreaterThan(0);
             done();
         });
@@ -127,10 +131,26 @@ $(function() {
     });
 
 
-    /* TODO: Write a new test suite named "New Feed Selection" */
+    /* TODO: 8) Write a new test suite named "New Feed Selection" */
+    describe('New Feed Selection', function() {
 
-        /* TODO: Write a test that ensures when a new feed is loaded
+        /* TODO: 9) Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+
+        beforeEach(function(done) {
+            loadFeed(0, function() {
+                done();
+            });
+        });
+
+        it('new test', function(done) {
+            var pizza = 'cheese';
+            expect(pizza).toEqual('cheese');
+            done();
+        });
+
+    });
+
 }());
