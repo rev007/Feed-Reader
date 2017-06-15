@@ -139,6 +139,9 @@ $(function() {
          * Remember, loadFeed() is asynchronous.
          */
 
+        // uncomment to clear localStorage for an initial test
+        // localStorage.setItem("strSavedStuff", "");
+
         var strOldFeed = localStorage.getItem("strSavedStuff");
         console.log('oldFeed = ' + strOldFeed);
 
@@ -151,18 +154,20 @@ $(function() {
             });
         });
 
-        it('new test', function(done) {
+        it('content changes', function(done) {
 
+            // get all the entries
             newFeed = document.getElementsByClassName("entry");
 
-            // build a string
+            // build a string out of them
             for (var i = 0; i < newFeed.length; i++) {
                 strNewFeed = strNewFeed + newFeed[i].innerText;
             }
 
             console.log('newFeed = ' + strNewFeed);
-            localStorage.setItem("strSavedStuff", strNewFeed);
 
+            // save this feed so you can compare next time a new feed is requested
+            localStorage.setItem("strSavedStuff", strNewFeed);
 
             expect(strNewFeed).not.toEqual(strOldFeed);
             done();
