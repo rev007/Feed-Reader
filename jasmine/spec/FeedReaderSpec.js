@@ -112,14 +112,15 @@ $(function() {
          */
 
         beforeEach(function(done) {
-            init(function() {
+            loadFeed(0, function() {
                 done();
             });
         });
 
         it('should grab intial contacts', function(done) {
-            // expect(addressBook.initialComplete).toBe(true);
-            expect(true).toBe(true);
+            var x = $(".feed").contents().length;
+            console.log(x);
+            expect(x).toBeGreaterThan(1);
             done();
         });
 
