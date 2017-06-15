@@ -139,6 +139,12 @@ $(function() {
          * Remember, loadFeed() is asynchronous.
          */
 
+        var strOldFeed = localStorage.getItem("strSavedStuff");
+        console.log('oldFeed = ' + strOldFeed);
+
+        var newFeed;
+        var strNewFeed = '';
+
         beforeEach(function(done) {
             loadFeed(0, function() {
                 done();
@@ -146,8 +152,19 @@ $(function() {
         });
 
         it('new test', function(done) {
-            var pizza = 'cheese';
-            expect(pizza).toEqual('cheese');
+
+            newFeed = document.getElementsByClassName("entry");
+
+            // build a string
+            for (var i = 0; i < newFeed.length; i++) {
+                strNewFeed = strNewFeed + newFeed[i].innerText;
+            }
+
+            console.log('newFeed = ' + strNewFeed);
+            localStorage.setItem("strSavedStuff", strNewFeed);
+
+
+            expect(strNewFeed).not.toEqual(strOldFeed);
             done();
         });
 
