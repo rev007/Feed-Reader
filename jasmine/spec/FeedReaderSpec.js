@@ -73,14 +73,30 @@ $(function() {
          */
         it ('is hidden by default', function() {
             var element = document.getElementsByClassName("menu-hidden");
-            expect(element.length).not.toBeLessThan(1);
+            expect(element.length).not.toBeLessThan(1); // "menu-hidden" is the class css uses to push menu off screen
         });
 
-         /* TODO: Write a test that ensures the menu changes
+         /* TODO: 5) Write a test that ensures the menu changes
           * visibility when the menu icon is clicked. This test
           * should have two expectations: does the menu display when
           * clicked and does it hide when clicked again.
           */
+         it('changes visibility when clicked', function() {
+
+             var element;
+
+             // click the menu on
+             menuIcon = $('.menu-icon-link'); // get the burger menu icon
+             menuIcon.click(); // make the menu shift onto the screen by clicking the burger
+             element = document.getElementsByClassName("menu-hidden");
+             expect(element.length).toBeLessThan(1); // "menu-hidden" class should be toggled off
+
+             // click the menu off
+             menuIcon.click(); // make the menu shift off the screen by clicking the burger
+             element = document.getElementsByClassName("menu-hidden");
+             expect(element.length).not.toBeLessThan(1); // "menu-hidden" class should be toggled off
+             
+         });
 
     });
 
