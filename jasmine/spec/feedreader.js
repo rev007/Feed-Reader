@@ -87,20 +87,16 @@ $(function() {
           */
 
          it('changes visibility when clicked', function() {
-
              var element;
-
              // click the menu on
              menuIcon = $('.menu-icon-link'); // get the burger menu icon
              menuIcon.click(); // make the menu shift onto the screen by clicking the burger
              element = document.getElementsByClassName("menu-hidden");
              expect(element.length).toBeLessThan(1); // "menu-hidden" class should be toggled off
-
              // click the menu off
              menuIcon.click(); // make the menu shift off the screen by clicking the burger
              element = document.getElementsByClassName("menu-hidden");
              expect(element.length).not.toBeLessThan(1); // "menu-hidden" class should be toggled off
-             
          });
 
     });
@@ -115,29 +111,15 @@ $(function() {
          * Remember, loadFeed() is asynchronous so this test will require
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
-
         beforeEach(function(done) {
             loadFeed(0, done);
         });
 
         it('should have at least one entry element added to the DOM', function() {
-
-            var strData = "";
-            var bEntryHasData = false;
-
-            // get all the entries
+            // get all the feed entries
             var entries = document.getElementsByClassName("entry");
-
-            // see if at least one entry has data
-            for (var i = 0; i < entries.length; i++) {
-                strData = entries[i].innerText;
-                if (strData !== "") {
-                    bEntryHasData = true;
-                };
-            }
-
-            expect(bEntryHasData).toBeTruthy();
-
+            // see if there is at least one entry
+            expect(entries.length).toBeGreaterThan(0);
         });
 
     });
@@ -161,7 +143,6 @@ $(function() {
 
         // load the first feed at index zero
         beforeEach(function(done) {
-
             loadFeed(0, function() {
                 newFeed = document.getElementsByClassName("entry");
                 // build a string out of the feed
@@ -170,12 +151,10 @@ $(function() {
                 }
                 done();
             });
-
         });
 
         // load the second feed at index one
         beforeEach(function(done) {
-
             loadFeed(1, function() {
                 newFeed = document.getElementsByClassName("entry");
                 // build a string out of the feed
@@ -184,13 +163,12 @@ $(function() {
                 }
                 done();
             });
-            
         });
 
         it('content changes', function() {
             expect(strFirstFeed).not.toEqual(strSecondFeed);
         });
-
+        
     });
 
 }());
