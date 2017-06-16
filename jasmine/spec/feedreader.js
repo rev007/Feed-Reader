@@ -161,60 +161,35 @@ $(function() {
 
         // load the first feed at index zero
         beforeEach(function(done) {
+
             loadFeed(0, function() {
                 newFeed = document.getElementsByClassName("entry");
-                console.log(newFeed);
-
                 // build a string out of the feed
                 for (var i = 0; i < newFeed.length; i++) {
                     strFirstFeed = strFirstFeed + newFeed[i].innerText;
                 }
-                console.log('strFirstFeed = ' + strFirstFeed);
                 done();
             });
+
         });
 
         // load the second feed at index one
         beforeEach(function(done) {
+
             loadFeed(1, function() {
                 newFeed = document.getElementsByClassName("entry");
-                console.log(newFeed);
-
                 // build a string out of the feed
                 for (var i = 0; i < newFeed.length; i++) {
                     strSecondFeed = strSecondFeed + newFeed[i].innerText;
                 }
-                console.log('strSecondFeed = ' + strSecondFeed);
                 done();
             });
+            
         });
 
         it('content changes', function() {
             expect(strFirstFeed).not.toEqual(strSecondFeed);
         });
-
-
-        // it('content changes', function(done) {
-        //
-        //     // // get all the entries
-        //     // newFeed = document.getElementsByClassName("entry");
-        //     //
-        //     // // build a string out of them
-        //     // for (var i = 0; i < newFeed.length; i++) {
-        //     //     strNewFeed = strNewFeed + newFeed[i].innerText;
-        //     // }
-        //     //
-        //     // console.log('newFeed = ' + strNewFeed);
-        //     //
-        //     // // save this feed so you can compare next time a new feed is requested
-        //     // localStorage.setItem("strSavedStuff", strNewFeed);
-        //     //
-        //     // expect(strNewFeed).not.toEqual(strOldFeed);
-        //     // done();
-        //
-        //     expect(true).toBe(true);
-        //     done();
-        // });
 
     });
 
