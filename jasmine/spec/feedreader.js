@@ -123,9 +123,24 @@ $(function() {
         });
 
         it('should have at least one entry', function(done) {
-            var x = $(".feed").contents().length;
-            expect(x).toBeGreaterThan(0);
+
+            var strData = "";
+            var bEntryHasData = false;
+
+            // get all the entries
+            var entries = document.getElementsByClassName("entry");
+
+            // see if at least one entry has data
+            for (var i = 0; i < entries.length; i++) {
+                strData = entries[i].innerText;
+                if (strData !== "") {
+                    bEntryHasData = true;
+                };
+            }
+
+            expect(bEntryHasData).toBeTruthy();
             done();
+
         });
 
     });
@@ -140,7 +155,7 @@ $(function() {
          */
 
         // uncomment to clear localStorage for an initial test
-        // localStorage.setItem("strSavedStuff", "");
+        localStorage.setItem("strSavedStuff", "");
 
         var strOldFeed = localStorage.getItem("strSavedStuff");
         console.log('oldFeed = ' + strOldFeed);
