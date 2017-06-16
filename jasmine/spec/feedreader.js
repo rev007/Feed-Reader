@@ -117,12 +117,10 @@ $(function() {
          */
 
         beforeEach(function(done) {
-            loadFeed(0, function() {
-                done();
-            });
+            loadFeed(0, done);
         });
 
-        it('should have at least one entry', function(done) {
+        it('should have at least one entry', function() {
 
             var strData = "";
             var bEntryHasData = false;
@@ -139,7 +137,6 @@ $(function() {
             }
 
             expect(bEntryHasData).toBeTruthy();
-            done();
 
         });
 
@@ -164,9 +161,7 @@ $(function() {
         var strNewFeed = '';
 
         beforeEach(function(done) {
-            loadFeed(0, function() {
-                done();
-            });
+            loadFeed(0, done);
         });
 
         it('content changes', function(done) {
