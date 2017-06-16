@@ -120,7 +120,7 @@ $(function() {
             loadFeed(0, done);
         });
 
-        it('should have at least one entry', function() {
+        it('should have at least one entry element added to the DOM', function() {
 
             var strData = "";
             var bEntryHasData = false;
