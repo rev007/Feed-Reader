@@ -122,7 +122,7 @@ $(function() {
             });
         });
 
-        it('should grab intial contacts', function(done) {
+        it('should have at least one entry', function(done) {
             var x = $(".feed").contents().length;
             expect(x).toBeGreaterThan(0);
             done();
