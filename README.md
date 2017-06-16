@@ -64,9 +64,7 @@ HOW TO RUN
 ### Getting started
 
 1. All of the Jasmine tests will run on their own
-2. The last test (named 'content changes') should run successfully the first time
-3. If you refresh your page and the content doesn't change, it will then fail
-4. You can reset the test by uncommenting the local storage clear on line 143
+2. Each test should display in green on the Jasmine interface if the expectations succeed
 
 ### Credits
 
