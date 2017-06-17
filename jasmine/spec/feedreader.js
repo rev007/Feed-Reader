@@ -117,7 +117,7 @@ $(function() {
 
         it('should have at least one entry element added to the DOM', function() {
             // get all the feed entries
-            var entries = document.getElementsByClassName("entry");
+            var entries = document.querySelectorAll('.feed .entry'); // Vanilla JS method
             // see if there is at least one entry
             expect(entries.length).toBeGreaterThan(0);
         });
@@ -168,7 +168,7 @@ $(function() {
         it('content changes', function() {
             expect(strFirstFeed).not.toEqual(strSecondFeed);
         });
-        
+
     });
 
 }());
